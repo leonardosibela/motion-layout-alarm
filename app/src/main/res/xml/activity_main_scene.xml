@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+       </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@+id/alarm_recycler"
+            motion:dragDirection="dragDown"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/next_alarm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintBottom_toTopOf="@id/more_button"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/next_alarm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@id/more_button"
+            motion:layout_constraintTop_toBottomOf="@+id/next_alarm_remaing_text"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="8dp" />
+        <Constraint
+            android:id="@+id/next_alarm_remaing_text"
+            motion:layout_constraintEnd_toStartOf="@+id/vertical_end_guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            android:layout_marginTop="32dp"
+            motion:layout_constraintBottom_toTopOf="@id/next_alarm_text"
+            android:alpha="0"
+            motion:transitionEasing="cubic(0,2,0,2,0,8,0,8)" />
+        <Constraint
+            android:id="@+id/next_alarm_remaing_text"
+            motion:layout_constraintEnd_toStartOf="@+id/vertical_end_guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@id/next_alarm_text"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            android:layout_marginTop="32dp" />
+        <Constraint
+            android:id="@+id/add_button"
+            motion:layout_constraintEnd_toStartOf="@id/more_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/add_button"
+            motion:layout_constraintEnd_toStartOf="@id/more_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@id/next_alarm_text"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" />
+        <Constraint
+            android:id="@+id/more_button"
+            motion:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/next_alarm_text"
+            android:layout_marginTop="16dp"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/more_button"
+            motion:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/next_alarm_text"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" />
+    </ConstraintSet>
+</MotionScene>
